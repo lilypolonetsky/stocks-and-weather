@@ -1,0 +1,27 @@
+Summary
+Hypothesis: Does the stock market underperform when the weather is bad?
+
+Definitions:
+For the purpose of this analysis, the stock market is defined as the Dow Jones Index.
+The weather is New York's weather.
+
+Data Sources:
+manhattanHistoricalWeather contains hourly weather from New York
+dji.csv contains daily information about the Dow Jones
+
+Process:
+In the directory stockCalcs there are two files: djiCalcs.py and significantDecrease.py
+   djiCalcs.py is responsible for taking the data from dji.csv and computing each month's average day change and the standard deviation. Each day is then saved with its number of standard deviation from the month's mean in data/dji_price_changes.csv
+   significantDecrease.py is responsible for finding all the days in which the change in price was at least one standard deviation below the month's average day change. All the days which fit this criteria are saved in data/dji_decrease.csv
+
+In the directory badWeather there are two files: badTemp.py and badConditions.py
+   badTemp.py is responsible for taking the data from manhattanHistoricalWeather and calculating the month's average temperature and standard deviation and thencalculating each day's standard deviations from the month's mean. Each day's date and standard deviations from the month's mean is recorded in data/tempDays.csv
+   All of the days in which the standard deviation is at least one standard deviation below the mean are recorded in data/badTempDays.csv
+   badConditions.py is responsible for recording all days in which a significant amount of snow or rain occurs or if a thunderstorm occurs. The days and the conditions reported are saved in data/badConditions.csv
+
+In the directory graphing there are two files: priceToWeather.py and priceToConditions.py
+   priceToWeather.py is responsible for generating a scatterplot saved in the SemesterProject folder called priceToWeather.pdf with each day being a point. The x-axis is the days' standard deviations from the monthly mean weather. The y-axis is the days' standard deviations from the monthly average change in price.
+   priceToConditions.py is responsible for generating three pie charts comparing price and bad weather conditions. The three pie charts are saved in the SemesterProject folder called PriceToConditions.pdf. (1) The first pie chart asks the question "was there a significant decrease in price when there was bad weather conditions?" A significant decrease in price was considered to be when the price was one standard deviation below the month's average daily price change. (2) The second pie chart asks the question "did the price increase or decrease when there was bad weather conditions?" Any day in which the standard deviation from the month's average price change was greater than 0 was considered an increase and any day in which it was below 0 was considered a decrease. (3) The third pie chart asks the question "did the price increase or decrease when there was not bad weather conditions?" The same defintion of price increase and price decrease was used from the second pie chart. Not bad weather conditions was considered to be any day in which there was no reporting of significant rain or snow or any thunderstorms.
+
+Conclusions:
+The scatterplot and pie charts provided no evidence that the stock market underperforms when there is bad weather. The scatterplot indicates no correlation and the pie charts do not show a significant difference in the stock price changes when the weather is bad or not bad. 

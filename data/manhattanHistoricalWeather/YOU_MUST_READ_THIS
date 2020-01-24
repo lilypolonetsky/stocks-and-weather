@@ -1,0 +1,25 @@
+This data is historical hourly weather data from openweathermap.org
+
+The data is for a point in the center of Manhattan
+
+BE VERY CAUTIOUS: the times given in the raw data are UTC time,
+and are NOT local time. So, if you are doing processing that
+wants to correlate events that happened in local NYC time,
+you MUST convert UTC time to local time. There are Python
+modules that will do this. Trying to just subtract 5 hours
+from UTC is not reliable, since depending on the date of the
+year, NYC could be 4 hours before UTC or 5 hours before UTC.
+
+UPDATE: You can now use the file called manhattanWeatherClean.gz
+In that file, the data has been updated as follows:
+
+- the date and time in field 1 are now NYC local time, and at the end
+  of that field is a 3-letter indicator of what day of the week
+  that data represents.
+  
+- the data was cleaned-up using the Python script cleanData.py
+
+The weather station that collected this data is at the center
+of Cantral Park in Manhattan.
+
+

@@ -1,0 +1,12 @@
+This data is historical hourly weather data from openweathermap.org
+
+The data is for a point in the center of Manhattan
+
+BE VERY CAUTIOUS: the times given in the data are UTC time,
+and are NOT local time. So, if you are doing processing that
+wants to correlate events that happened in local NYC time,
+you MUST convert UTC time to local time. There are Python
+modules that will do this. Trying to just subtract 5 hours
+from UTC is not reliable, since depending on the date of the
+year, NYC could be 4 hours before UTC or 5 hours before UTC.
+
